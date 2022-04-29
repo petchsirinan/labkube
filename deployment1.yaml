@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp1
+  namespace: petch
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: finaltest
+  template:
+    metadata: 
+      name: myapp1
+      labels: 
+        app: finaltest
+    spec:
+      containers:
+        - name: myapp1
+          image: final:1.0.1
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "50m"
+            limits:
+              memory: "128Mi"
+              cpu: "200m"
